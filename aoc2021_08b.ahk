@@ -1,6 +1,34 @@
 #NoEnv
 #SingleInstance Force
 
+/* NOTES
+
+0	5	abcefg
+1	2	cf
+2	5	acdeg
+3	5	acdfg
+4	4	bcdf
+5	5	abdfg
+6	6	abdefg
+7	3	acf
+8	7	abcdefg
+9	6	abcdfg
+
+2 3 4 5555 66 7
+1 7 4 0235 69 8
+
+a	8	0 23 56789
+b	6	0   456 89
+c	8	01234  789
+d	7	  23456 89
+e	4	0 2   6 8
+f	9	0 23456789
+g	7	0 23 56 89
+
+4 6 77 88 9
+e b dg ac f
+*/
+
 ;input_fn := "aoc2021_08_test_input_single.txt"
 ;input_fn := "aoc2021_08_test_input.txt"
 input_fn := "aoc2021_08_input.txt"
