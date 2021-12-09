@@ -30,7 +30,6 @@ Loop % y_max {
 	y := A_Index
 	Loop % x_max {
 		x := A_Index
-		;MsgBox % x " " y " " HeightMap[x,y]
 		height := HeightMap[x,y]
 		lowest := true
 		if(x > 1 and HeightMap[x-1,y] <= height)
@@ -51,12 +50,10 @@ Loop % y_max {
 				Loop % x_max {
 					xx := A_Index
 					if(BasinMap[xx,yy]) {
-						out .= xx "," yy " " BasinMap[xx,yy] "`n"
 						basin_size++
 					}
 				}
 			}
-			;MsgBox % basin_size "`n`n" out
 			basin_list .= (StrLen(basin_list) ? "`n" : "") basin_size
 		}
 	}
