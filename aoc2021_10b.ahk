@@ -21,7 +21,6 @@ Loop, Parse, file, `n
 	Loop, Parse, line
 	{
 		new_bracket := A_LoopField
-		corrupt := false
 		if new_bracket in (,[,{,<
 		{
 			BracketStack.Push(new_bracket)
@@ -29,6 +28,7 @@ Loop, Parse, file, `n
 		}
 		else {
 			old_bracket := BracketStack.Pop()
+			corrupt := false
 			if(new_bracket == ")" and old_bracket != "(") {
 				corrupt := true
 				break
