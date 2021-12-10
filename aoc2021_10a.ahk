@@ -48,30 +48,3 @@ Loop, Parse, file, `n
 MsgBox, total_syntax_error_score: %total_syntax_error_score%
 
 ExitApp
-
-CountChar(string, char) {
-	return StrLen(RegExReplace(string, "[^" char "]"))
-}
-
-Min(vals*) {
-	min := vals[1]
-	for k,v in vals
-		if(v < min)
-			min := v
-	return min
-}
-
-Max(vals*) {
-	max := vals[1]
-	for k,v in vals
-		if(v > max)
-			max := v
-	return max
-}
-
-Pow(pow_base, pow_exp) {
-	prod := 1
-	Loop, %pow_exp%
-		prod *= pow_base
-	return prod
-}
