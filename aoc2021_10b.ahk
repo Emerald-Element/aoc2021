@@ -53,19 +53,15 @@ Loop, Parse, file, `n
 	completion_string =
 	for k,v in BracketStack
 		completion_string := ClosingBracket[v] completion_string
-	;MsgBox % completion_string
 	completion_string_score := 0
 	Loop, Parse, completion_string
 		completion_string_score := (completion_string_score * 5) + PointValue[A_LoopField]
-	;MsgBox % completion_string_score
 	completion_string_score_list .= (StrLen(completion_string_score_list) ? "`n" : "") completion_string_score
 }
 Sort, completion_string_score_list, N
-;MsgBox % completion_string_score_list
 Loop, Parse, completion_string_score_list, `n
 {
 	middle_slot := (incomplete_string_count + 1) / 2
-	;MsgBox, A_Index: %A_Index%`nA_LoopField: %A_LoopField%`nmiddle_slot: %middle_slot%
 	if(A_Index == middle_slot) {
 		middle_completion_string_score := A_LoopField
 		break
