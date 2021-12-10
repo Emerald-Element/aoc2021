@@ -59,9 +59,9 @@ Loop, Parse, file, `n
 	completion_string_score_list .= (StrLen(completion_string_score_list) ? "`n" : "") completion_string_score
 }
 Sort, completion_string_score_list, N
+middle_slot := (incomplete_string_count + 1) / 2
 Loop, Parse, completion_string_score_list, `n
 {
-	middle_slot := (incomplete_string_count + 1) / 2
 	if(A_Index == middle_slot) {
 		middle_completion_string_score := A_LoopField
 		break
