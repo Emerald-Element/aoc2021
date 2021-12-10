@@ -66,7 +66,7 @@ Loop, Parse, completion_string_score_list, `n
 {
 	middle_slot := (incomplete_string_count + 1) / 2
 	;MsgBox, A_Index: %A_Index%`nA_LoopField: %A_LoopField%`nmiddle_slot: %middle_slot%
-	if(A_Index == (incomplete_string_count + 1) / 2) {
+	if(A_Index == middle_slot) {
 		middle_completion_string_score := A_LoopField
 		break
 	}
