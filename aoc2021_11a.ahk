@@ -75,44 +75,10 @@ ShowGrid(msg:="") {
 		y := A_Index
 		Loop, 10 {
 			x := A_Index
-			out .= Pad(OctopusGrid[x,y],1)
+			out .= OctopusGrid[x,y]
 		}
 		out .= "`n"
 	}
 	MsgBox % msg "`n" out
 	return out
-}
-
-Pad(raw, width, padding:="0") {
-	padded := raw
-	while(StrLen(padded) < width)
-		padded := padding padded
-	return padded
-}
-
-CountChar(string, char) {
-	return StrLen(RegExReplace(string, "[^" char "]"))
-}
-
-Min(vals*) {
-	min := vals[1]
-	for k,v in vals
-		if(v < min)
-			min := v
-	return min
-}
-
-Max(vals*) {
-	max := vals[1]
-	for k,v in vals
-		if(v > max)
-			max := v
-	return max
-}
-
-Pow(pow_base, pow_exp) {
-	prod := 1
-	Loop, %pow_exp%
-		prod *= pow_base
-	return prod
 }
