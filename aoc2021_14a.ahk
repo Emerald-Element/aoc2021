@@ -28,10 +28,8 @@ PolymerPairs := []
 Loop {
 	pair := SubStr(polymer_template, A_Index, 2)
 	if(StrLen(pair) == 2) {
-		if(PolymerPairs[pair] > 0)
-			PolymerPairs[pair]++
-		else
-			PolymerPairs[pair] := 1
+		pair_count := PolymerPairs[pair]
+		PolymerPairs[pair] := (pair_count ? pair_count + 1 : 1)
 	}
 	else
 		break
@@ -41,10 +39,7 @@ Loop, 10 {
 	PairUpdates := []
 	for k,v in PolymerPairs {
 		PairUpdates[k] := (StrLen(PairUpdates[k]) ? PairUpdates[k] - v : -v)
-		;PairUpdates[k] := -v
-		;MsgBox % "PairUpdates[" k "]: " PairUpdates[k]
 		new_element := InsertionRules[k]
-		;MsgBox, new_element: %new_element%`nk: %k%
 		left_pair := SubStr(k,1,1) new_element
 		right_pair := new_element SubStr(k,2,1)
 		PairUpdates[left_pair] := (StrLen(PairUpdates[left_pair]) ? PairUpdates[left_pair] + v : v)
