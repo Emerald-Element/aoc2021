@@ -56,7 +56,6 @@ Loop, 10 {
 	for k,v in PolymerPairs
 		out .= k " " v "`n"
 	step := A_Index
-	;MsgBox % "After step " A_Index ":`n" out
 	ShowOutput()
 }
 
