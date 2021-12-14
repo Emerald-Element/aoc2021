@@ -78,7 +78,7 @@ for k,v in PolymerSingles {
 }
 element_range := most_common - least_common
 
-;ShowOutput("msgbox")
+ShowOutput("msgbox")
 
 ExitApp
 
@@ -91,17 +91,6 @@ ShowOutput(type:="tooltip") {
 		ToolTip
 		MsgBox % output
 	}
-}
-
-Pad(raw, width, padding:="0") {
-	padded := raw
-	while(StrLen(padded) < width)
-		padded := padding padded
-	return padded
-}
-
-CountChar(string, char) {
-	return StrLen(RegExReplace(string, "[^" char "]"))
 }
 
 Min(vals*) {
@@ -118,11 +107,4 @@ Max(vals*) {
 		if(v > max)
 			max := v
 	return max
-}
-
-Pow(pow_base, pow_exp) {
-	prod := 1
-	Loop, %pow_exp%
-		prod *= pow_base
-	return prod
 }
