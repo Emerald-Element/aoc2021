@@ -37,11 +37,6 @@ Loop {
 		break
 }
 
-;out = 
-;for k,v in PolymerPairs
-;	out .= k " " v "`n"
-;MsgBox % "Template:`n" out
-
 Loop, 10 {
 	PairUpdates := []
 	for k,v in PolymerPairs {
@@ -98,17 +93,6 @@ ShowOutput(type:="tooltip") {
 	}
 }
 
-Pad(raw, width, padding:="0") {
-	padded := raw
-	while(StrLen(padded) < width)
-		padded := padding padded
-	return padded
-}
-
-CountChar(string, char) {
-	return StrLen(RegExReplace(string, "[^" char "]"))
-}
-
 Min(vals*) {
 	min := vals[1]
 	for k,v in vals
@@ -123,11 +107,4 @@ Max(vals*) {
 		if(v > max)
 			max := v
 	return max
-}
-
-Pow(pow_base, pow_exp) {
-	prod := 1
-	Loop, %pow_exp%
-		prod *= pow_base
-	return prod
 }
