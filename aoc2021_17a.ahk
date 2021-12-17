@@ -22,7 +22,6 @@ if(y1 > 0 or y2 > 0)
 	MsgBox, Need to program for negative x values!`ny1: %y1%`ny2: %y2%
 
 XVelocity := []
-x_miss =
 Loop % x2+1 {
 	xv_init := A_Index
 	x := 0
