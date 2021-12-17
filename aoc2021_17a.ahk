@@ -75,7 +75,6 @@ for k,v in YVelocity
 highest_y := 0
 for k,v in YVelocity {
 	for kk,vv in XVelocity {
-		;MsgBox, YVelocity`nk: %k%`nv: %v%`n`nXVelocity`nkk: %kk%`nvv: %vv%
 		x := 0
 		y := 0
 		xv_init := kk
@@ -83,12 +82,10 @@ for k,v in YVelocity {
 		xv := xv_init
 		yv := yv_init
 		y_max_testing := 0
-		;MsgBox, A_Index: %A_Index%`ncoords: (%x%,%y%)`nvel: (%xv%,%yv%)`ny_max_testing: %y_max_testing%
 		Loop {
 			x += xv
 			y += yv
 			y_max_testing := Max(y, y_max_testing)
-			;MsgBox, A_Index: %A_Index%`ncoords: (%x%,%y%)`nvel: (%xv%,%yv%)`ny_max_testing: %y_max_testing%
 			if(x >= x1 and y >= y1 and x <= x2 and y <= y2) {
 				initial_velocity_count++
 				last_highest_y := highest_y
@@ -124,37 +121,10 @@ ShowOutput(type:="tooltip") {
 	}
 }
 
-Min(vals*) {
-	min := vals[1]
-	for k,v in vals
-		if(v < min)
-			min := v
-	return min
-}
-
 Max(vals*) {
 	max := vals[1]
 	for k,v in vals
 		if(v > max)
 			max := v
 	return max
-}
-
-Pad(raw, width, padding:="0") {
-	padded := raw
-	while(StrLen(padded) < width)
-		padded := padding padded
-	return padded
-}
-
-CountChar(string, char) {
-	return StrLen(RegExReplace(string, "[^" char "]"))
-}
-
-
-Pow(pow_base, pow_exp) {
-	prod := 1
-	Loop, %pow_exp%
-		prod *= pow_base
-	return prod
 }
